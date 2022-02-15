@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CAAC;EACL,gBAAgB,EAAE,OAAO;EACzB,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,KAAK;EACZ,QAAQ,EAAE,QAAQ;EAClB,GAAG,EAAE,KAAK;EACV,KAAK,EAAE,GAAG;EACV,SAAS,EAAC,iBAAiB;CAC5B;;AACD,AAAA,MAAM,CAAC,CAAC,CACR;EACE,UAAU,EAAE,MAAM;CACnB",
+    "sources": [
+        "tvshow.component.scss"
+    ],
+    "names": [],
+    "file": "tvshow.component.css"
+}

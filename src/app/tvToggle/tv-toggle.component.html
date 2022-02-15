@@ -1,0 +1,31 @@
+<div class="slider-background2 container-fluid ">
+<div class="layer container-fluid">
+
+  <div class="row overflow-hidden justify-content-center align-items-center">
+    <div class="col-md-2 my-5 main-box" *ngFor="let movie of TrendingTv">
+            <div class="position-relative" (click)="gettrailier(movie.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img class="rounded img-fluid img-box" [src]=" prefixPath + movie?.poster_path" (mouseenter)="moviebg(movie.id)">
+                <div class="play position-absolute"> <i class="bi bi-play-circle-fill"> </i></div>
+                <h4 class=" text-center text-white"> {{movie?.original_name}} </h4>
+            </div>
+          </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<ng-template #playvideo>
+  <span class="fs-2 d-flex justify-content-center" mat-dialog-close> <i class="bi bi-x-circle text-white"></i></span>
+  <div class="playvideo">
+    <youtube-player
+    videoId="{{key}}"
+    suggestedQuality="highres"
+    style=" width: 80vh ; height:100% ;"
+    [startSeconds]="0"
+    [endSeconds]="1000">
+  </youtube-player>
+  </div>
+</ng-template>
+
+
+    </div>

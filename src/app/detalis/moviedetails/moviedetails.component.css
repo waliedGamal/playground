@@ -1,0 +1,72 @@
+.detalis {
+  max-width: 100%;
+}
+
+.background {
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.layer {
+  background: rgba(0, 0, 0, 0.7) !important;
+  min-height: 100vh;
+}
+
+.moviecontent ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.moviecontent ul li {
+  display: inline-block;
+  padding: 3px;
+  margin-right: 5px;
+  margin-top: 5px;
+  font-size: 1.5rem;
+}
+
+.moviecontent h1 {
+  font-size: 3rem;
+  line-height: 3rem;
+}
+
+.moviecontent p {
+  font-size: 1.3rem;
+  line-height: 1.7rem;
+}
+
+.fa-play {
+  background-color: #FC004C;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.fa-plus {
+  background-color: #FC004C;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.modal-header {
+  border: 0;
+  margin: auto;
+}
+
+.fa-times-circle {
+  cursor: pointer;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+.fa-times-circle:hover {
+  color: red !important;
+}
+
+.modal-body {
+  padding: 0;
+}
+/*# sourceMappingURL=moviedetails.component.css.map */

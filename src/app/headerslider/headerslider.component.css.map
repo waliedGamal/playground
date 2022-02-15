@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AAAA,kBAAkB,CAClB;EACE,eAAe,EAAE,KAAK;EACtB,mBAAmB,EAAE,MAAQ;EAC7B,MAAM,EAAE,KAAK;EACb,UAAU,EAAE,aAAa;EACzB,kBAAkB,EAAE,aAAa;EACjC,eAAe,EAAE,aAAa;EAC9B,cAAc,EAAE,aAAa;EAC7B,aAAa,EAAE,aAAa;CAC7B;;AACD,AAAA,EAAE,CAAA;EACA,KAAK,EAdI,SAAS;EAelB,WAAW,EAAE,GAAG;EAChB,WAAW,EAAE,IAAI;CAClB;;AACD,AAAA,GAAG,CAAA;EACD,MAAM,EAAE,OAAO;EACf,UAAU,EAAE,aAAa;CAC1B",
+    "sources": [
+        "headerslider.component.scss"
+    ],
+    "names": [],
+    "file": "headerslider.component.css"
+}

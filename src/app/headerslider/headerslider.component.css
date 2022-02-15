@@ -1,0 +1,23 @@
+.slider-background {
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  transition: all ease 0.5s;
+  -webkit-transition: all ease 0.5s;
+  -moz-transition: all ease 0.5s;
+  -ms-transition: all ease 0.5s;
+  -o-transition: all ease 0.5s;
+}
+
+h1 {
+  color: #f2aa4cff;
+  font-weight: 800;
+  line-height: 37px;
+}
+
+img {
+  cursor: pointer;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+/*# sourceMappingURL=headerslider.component.css.map */

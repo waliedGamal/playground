@@ -1,0 +1,54 @@
+footer
+{
+    background-color: #212427;
+    text-align: center;
+    border-top: 0.1rem solid white;
+
+    h3{
+      font-size:1.2rem;
+      }
+
+    h3 span{
+    font-weight: 500;
+    font-size:1.3rem;
+    line-height: 25px;
+    color: #f2aa4cff;
+  }
+
+
+  .bi{
+      margin: 10px;
+      height: 40px;
+      font-size: 1.8rem;
+      line-height: 40px;
+      color: #ffff;
+      transition:color ease-in 0.3s;
+      cursor: pointer;
+      -webkit-transition:color ease-in 0.3s;
+      -moz-transition:color ease-in 0.3s;
+      -ms-transition:color ease-in 0.3s;
+      -o-transition:color ease-in 0.3s;
+    }
+
+    .bi-linkedin:hover{
+      color: #0A66C2 !important;
+    }
+    .bi-github:hover{
+      color: gray !important;
+    }
+    .bi-google:hover{
+      color: #EA4335 !important;
+    }
+
+    h3 a{
+      color:#f2aa4cff ;
+    }
+
+
+}
+
+
+
+
+
+

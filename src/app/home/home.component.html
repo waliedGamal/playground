@@ -1,0 +1,76 @@
+
+<app-headerslider></app-headerslider>
+
+<div class=" container-fluid py-3 d-flex">
+
+  <h1 class="me-4 text-white" >Latest Trailers </h1>
+  <div class="">
+      <div id="container">
+        <div class="inner-container rounded-pill">
+          <div routerLink="tv" class="toggle tv">
+            <p>TV</p>
+          </div>
+          <div routerLink="movie" class="toggle movie">
+            <p >Movies</p>
+          </div>
+        </div>
+
+        <div class="inner-container rounded-pill" id='toggle-container'>
+          <div routerLink="tv" class="toggle tv">
+            <p>TV</p>
+          </div>
+          <div routerLink="movie" class="toggle movie">
+            <p>Movies</p>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>
+
+<div class=" container-fluid pt-5">
+  <!-------------------- Trending Movies -------------------------->
+  <div class="row">
+      <div class="text-white col-md-4 Top d-flex flex-column justify-content-center">
+        <div class="ps-2">
+          <h1>Playground</h1>
+          <h2>Top Trending <span>Movies</span> To watch Right Now </h2>
+          <p>Most Watched Movies by Day <span class="underline" [routerLink]="['/category/Movies']">See More...</span></p></div>
+      </div>
+      <div class="col-md-2 pt-3" *ngFor="let movie of TrendingMovies ">
+          <div [routerLink]="['/detalis/movie-detalis',movie.id]" class="position-relative">
+            <img class="img-fluid" [src]=" prefixPath + movie.poster_path">
+              <div class="box-content2 d-flex ">
+                  <div class="vote2 rounded-pill pt-1 text-center position-absolute"> <i class="bi bi-star-fill"></i> {{movie.vote_average}} </div>
+                  <div>
+                      <h3 class="ps-2 pt-2 text-white"> {{movie.original_title}} </h3>
+                    </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+<!-------------------- Trending TV Shows -------------------------->
+  <div class="row pt-3">
+    <div class="text-white col-md-4 Top d-flex flex-column justify-content-center">
+      <div class="ps-2">
+        <h1>Playground</h1>
+        <h2>Top Trending <span>TV Shows</span> To watch Right Now </h2>
+        <p>Most Watched TV Shows by Day <span class="underline" [routerLink]="['/category/TvShow']">See More...</span></p></div>
+    </div>
+    <div class="col-md-2 pt-3" *ngFor="let movie of TrendingTv ">
+        <div [routerLink]="['/detalis/tv-detalis',movie.id]" class="position-relative">
+          <img class="img-fluid" [src]=" prefixPath + movie.poster_path">
+            <div class="box-content2 d-flex ">
+                <div class="vote2 rounded-pill pt-1 text-center position-absolute"> <i class="bi bi-star-fill"></i> {{movie.vote_average}} </div>
+                <div>
+                    <h3 class="ps-2 pt-2 text-white"> {{movie.name}} </h3>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+

@@ -1,0 +1,22 @@
+<div class=" container pt-3">
+  <div class="row pt-5">
+    <h1 class="pt-3 text-white">Tv Shows</h1>
+      <div class="col-md-3 col-sm-6 pt-3" *ngFor="let movie of TrendingTv ">
+          <div [routerLink]="['/detalis/tv-detalis',movie.id]" class="position-relative">
+            <img class="  img-fluid" [src]=" prefixPath + movie.poster_path">
+              <div class="movie d-flex ">
+                  <div class="vote2 rounded-pill pt-1 text-center position-absolute"> <i class="bi bi-star-fill"></i> {{movie.vote_average}} </div>
+                  <div>
+                      <h3 class="ps-2 text-white"> {{movie.original_name}} </h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="py-5">
+    <p-paginator  [rows]="10" [totalRecords]="5000" (onPageChange)="getpage($event.page)">
+    </p-paginator>
+  </div>
+
+</div>

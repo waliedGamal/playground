@@ -1,0 +1,21 @@
+
+
+<div class="slider-background container-fluid vh-100 d-flex justify-content-end align-items-end">
+
+  <div class="container py-3 ">
+    <h1>OUR LATEST MOVIES</h1>
+    <swiper [config]="config" class="text-white pb-2">
+      <ng-template swiperSlide *ngFor="let movie of TrendingMovies">
+          <div [routerLink]="['/detalis/movie-detalis',movie.id]" class="m-2">
+            <img class="rounded img-fluid headermovie" [src]=" prefixPath + movie.poster_path" (mouseenter)="moviebg(movie.id)">
+          </div>
+      </ng-template>
+    </swiper>
+  </div>
+</div>
+
+
+
+
+
+

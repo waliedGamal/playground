@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row pt-5">
+    <div class="col-md-4 py-3">
+      <img class=" w-100" [src]=" prefixPath + peopledeatlis?.profile_path">
+    </div>
+    <div class="col-md-8 text-white ">
+      <div class="peopledeatlis py-5">
+          <h1>{{peopledeatlis?.name}}</h1>
+          <p>{{peopledeatlis?.biography}}</p>
+            <h4> <span>Known For :</span> {{peopledeatlis?.known_for_department}} </h4>
+            <h4> <span>Date of Birth :</span> {{peopledeatlis?.birthday}} </h4>
+            <h4> <span>Place of Birth :</span> {{peopledeatlis?.place_of_birth}} </h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="container w-100 py-3 " >
+    <mat-tab-group  animationDuration="0ms" mat-align-tabs="center">
+
+            <mat-tab label="KNOWN FOR">
+              <div class="recommend py-3">
+                <h2 class="text-white ">Movies</h2>
+                <swiper [config]="config" class="text-white">
+                  <ng-template swiperSlide *ngFor="let people of peopledeatlis?.movie_credits.cast">
+                    <div [routerLink]="['/detalis/movie-detalis',people.id]">
+                      <img *ngIf="people.poster_path" class="w-100" [src]="prefixPath + people.poster_path">
+                      <img *ngIf="!people.poster_path" class="rounded img-fluid" src="../../../assets/images/not-avail.png">
+                    </div>
+                  </ng-template>
+                  </swiper>
+
+                  <div class="recommend pb-5">
+                    <h2 class="text-white ">TV</h2>
+                    <swiper [config]="config" class="text-white">
+                      <ng-template swiperSlide *ngFor="let people of peopledeatlis?.tv_credits.cast">
+                          <div [routerLink]="['/detalis/tv-detalis',people.id]">
+                          <img *ngIf="people.poster_path" class="w-100" [src]="prefixPath + people?.poster_path">
+                          <img *ngIf="!people.poster_path" class="rounded img-fluid" src="../../../assets/images/not-avail.png">
+                          <div>
+                            <h3 class="ps-2 text-white">{{people?.original_title}}</h3>
+                          </div>
+                        </div>
+                        </ng-template>
+                      </swiper>
+                  </div>
+              </div>
+            </mat-tab>
+
+            <mat-tab label="Images">
+              <swiper [config]="config2" class="text-white py-4">
+                <ng-template swiperSlide *ngFor="let people of peopledeatlis?.images.profiles">
+                    <img *ngIf="people.file_path" class="img-fluid h-100" [src]="prefixPath + people?.file_path">
+                    <img *ngIf="!people.file_path" class="rounded img-fluid" src="../../../assets/images/not-avail.png">
+                </ng-template>
+                </swiper>
+            </mat-tab>
+
+    </mat-tab-group>
+  </div>
+
+</div>

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,MAAM,CACN;EACE,UAAU,EAAC,kBAAe,CAAA,UAAU;EACpC,MAAM,EAAC,KAAK;CACb",
+    "sources": [
+        "tv-toggle.component.scss"
+    ],
+    "names": [],
+    "file": "tv-toggle.component.css"
+}

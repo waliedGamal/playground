@@ -1,0 +1,59 @@
+
+<nav class="navbar navbar-expand-lg navbar-dark shadow bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex justify-content-center align-items-center" routerLink="home">
+      <div class="logo me-2"> <h2> </h2></div>Playground</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarSupportedContent">
+
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <form [formGroup]="searchMedia" (keyup)="SearchMovie(searchMedia)" >
+            <li *ngIf="islogin" class="nav-item d-flex">
+                <input class="form-control me-2 search-input bg-transparent text-white" placeholder="Search for a movie , tv shows... "  formControlName="keyword" matInput
+                [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                <mat-option [routerLink]="['/detalis/'+ result.media_type +'-detalis',result.id]" *ngFor="let result of results"  [value]="result?.title == null ? result.name : result.title">
+                <img class="example-option-img pe-2" *ngIf="!result.profile_path && result.poster_path != null" aria-hidden [src]="prefixPath + result.poster_path" height="30">
+                <img class="example-option-img pe-2" *ngIf="result.profile_path && result.profile_path != null" aria-hidden [src]="prefixPath + result.profile_path" height="30">
+                <span>{{result?.title == null ? result?.name : result?.title}}</span>
+                </mat-option>
+                </mat-autocomplete>
+            </li>
+          </form>
+
+            <li *ngIf="islogin" class="nav-item ">
+              <a  class="nav-link " aria-current="page" routerLinkActive="active" routerLink="home">Home</a>
+            </li>
+            <li *ngIf="islogin" class="nav-item ">
+              <a  class="nav-link " aria-current="page" routerLinkActive="active" routerLink="category/Movies">Movies</a>
+            </li>
+            <li *ngIf="islogin" class="nav-item">
+              <a  class="nav-link " aria-current="page" routerLinkActive="active" routerLink="category/TvShow">TV Show</a>
+            </li>
+            <li *ngIf="islogin" class="nav-item">
+              <a  class="nav-link " aria-current="page" routerLinkActive="active" routerLink="category/people">People</a>
+            </li>
+            <li *ngIf="!islogin" class="nav-item">
+              <a class="nav-link " aria-current="page" routerLinkActive="active" routerLink="signin">signin</a>
+            </li>
+            <li *ngIf="!islogin" class="nav-item">
+              <a class="nav-link " aria-current="page" routerLinkActive="active" routerLink="signup">signup</a>
+            </li>
+
+            <li *ngIf="islogin" class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle username" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                {{username.first_name+" "+ username.last_name}},
+              </a>
+              <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+                <li class="nav-item text-center">
+                  <a class="nav-link" aria-current="page" (click)="logout()" routerLink="">logout</a>
+                </li>
+              </ul>
+            </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

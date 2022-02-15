@@ -1,0 +1,45 @@
+
+<div class="log-background ">
+
+
+
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+      <form class="mx-auto w-50" [formGroup]="signinform" (ngSubmit)="singin(signinform)" >
+
+        <div class="py-2 col-md-12">
+          <input type="email" formControlName="email" placeholder="Enter Your Email" class="form-control"
+          [class.is-valid]="signinform.get('email')?.valid && signinform.get('email')?.touched"
+          [class.is-invalid]="signinform.get('email')?.invalid && signinform.get('email')?.touched"
+          >
+          <div *ngIf="signinform.get('email')?.errors && signinform.get('email')?.touched">
+            <p class="text-danger " *ngIf="signinform.get('email')?.errors?.['required']"> Email is Required</p>
+            <p class="text-danger" *ngIf="signinform.get('email')?.errors?.['email']">  Email is Invaid</p>
+          </div>
+
+      </div>
+
+    <div class="py-2 col-md-12">
+      <input type="password" formControlName="password" placeholder="Password" class=" form-control"
+      [class.is-valid]="signinform.get('password')?.valid && signinform.get('password')?.touched"
+      [class.is-invalid]="signinform.get('password')?.invalid && signinform.get('password')?.touched">
+      <div *ngIf="signinform.get('password')?.errors && signinform.get('password')?.touched"   >
+        <p class="text-danger" *ngIf="signinform.get('password')?.errors?.['required']">password is Required</p>
+        <p class="text-danger" *ngIf="signinform.get('password')?.errors?.['pattern']">password must start with an uppercase letter & min Length is 8  </p>
+      </div>
+      <div *ngIf="error" class="text-danger mt-2"> {{error}} </div>
+
+    </div>
+
+    <div class="col-md-12">
+          <button type="submit" [disabled]="signinform.invalid || signinform.pending || loading" class="btn btn-dark form-control mt-4">
+            SignIn
+            <span class="d-inline-block float-end" *ngIf="loading">
+            <mat-spinner [diameter]="25"></mat-spinner>
+            </span>
+          </button>
+    </div>
+  </form>
+    </div>
+
+</div>
+

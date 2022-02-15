@@ -1,0 +1,77 @@
+$mainColor:#f2aa4cff;
+
+.logo
+{
+  width:25px;
+  height: 3px;
+  background-color: $mainColor;
+  position: relative;
+  top: -5px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+.logo ::after
+{
+  content: "";
+  width:20px;
+  height: 3px;
+  position: absolute;
+  background-color: $mainColor;
+  top: 5px;
+  right:0px;
+  border-radius: 20px;
+}
+.logo ::before
+{
+  content: "";
+  width:15px;
+  height: 3px;
+  position: absolute;
+  background-color: $mainColor;
+  top: 10px;
+  right:0px;
+  border-radius: 20px;
+}
+
+.imgsearch{
+  font-weight: normal;
+  display: inline-block;
+  white-space: nowrap;
+  min-height: 1.2em;
+  padding: 0px 2px 1px;
+}
+
+.logo a{
+  color: white !important;
+  transition: all 0.5s ease;
+}
+a:hover{
+  color: $mainColor !important;
+  transition: all 0.5s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link.active
+{
+  color:$mainColor;
+  transition: all 0.5s ease;
+
+}
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:hover
+{
+  color:$mainColor;
+  transition: all 0.5s ease;
+
+}
+.navbar-dark .navbar-nav .nav-link{
+  font-size: 1rem;
+  transition: all 0.5s ease;
+
+}
+
+.username
+{
+  cursor: pointer !important;
+}

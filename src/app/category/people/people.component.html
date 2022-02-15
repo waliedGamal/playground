@@ -1,0 +1,17 @@
+<div class=" container py-4">
+  <div class="row pt-5">
+      <h1 class="pt-3 text-white">Top Popular peoples</h1>
+      <div class="col-md-3 pt-3" *ngFor="let people of peoples ">
+          <div [routerLink]="['/detalis/person-detalis',people.id]" class="position-relative">
+            <img *ngIf="people?.profile_path" class="img-fluid" [src]=" prefixPath + people?.profile_path">
+            <img *ngIf="!people?.profile_path" class="rounded img-fluid" src="../../../assets/images/not-avail.png">
+              <div class="people d-flex ">
+                  <div class="vote2 rounded-pill pt-1 text-center position-absolute"> <i class="fas fa-star"></i> {{people?.known_for[0].vote_average}} </div>
+                  <div>
+                      <h3 class="ps-2 text-white"> {{people.name}} </h3>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+.logo {
+  width: 25px;
+  height: 3px;
+  background-color: #f2aa4cff;
+  position: relative;
+  top: -5px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+}
+
+.logo ::after {
+  content: "";
+  width: 20px;
+  height: 3px;
+  position: absolute;
+  background-color: #f2aa4cff;
+  top: 5px;
+  right: 0px;
+  border-radius: 20px;
+}
+
+.logo ::before {
+  content: "";
+  width: 15px;
+  height: 3px;
+  position: absolute;
+  background-color: #f2aa4cff;
+  top: 10px;
+  right: 0px;
+  border-radius: 20px;
+}
+
+.imgsearch {
+  font-weight: normal;
+  display: inline-block;
+  white-space: nowrap;
+  min-height: 1.2em;
+  padding: 0px 2px 1px;
+}
+
+.logo a {
+  color: white !important;
+}
+
+a:hover {
+  color: #f2aa4cff !important;
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #f2aa4cff;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover, .navbar-dark .navbar-nav .nav-link:hover {
+  color: #f2aa4cff;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  font-size: 1rem;
+}
+/*# sourceMappingURL=navbar.component.css.map */

@@ -1,0 +1,96 @@
+
+<div class="background" [ngStyle]=" {'background-image' : 'url('+originalPoster+imgPath+')'}" >
+  <div class="layer">
+    <div class="container">
+      <div class="row pt-5">
+        <div class="col-md-4 py-3">
+          <img class=" w-100" [src]="prefixPath + Moviedetails?.poster_path">
+        </div>
+        <div class="col-md-8 text-white ">
+          <div class="moviecontent py-5">
+              <h1>{{Moviedetails?.original_title}}</h1>
+              <p>{{Moviedetails?.overview}}</p>
+              <h3 >Release Date: {{Moviedetails?.release_date}} </h3  >
+              <h3 >Runtime: {{runtime}} </h3  >
+              <h3 ><i class="fas fa-star"></i>{{Moviedetails?.vote_average}}/{{Moviedetails?.vote_count}} reviews </h3  >
+              <ul>
+                <span>Genres:</span> <li *ngFor="let movie of Moviedetails?.genres">{{movie?.name}} | </li>
+              </ul>
+              <div>
+                <a class="target text-decoration-none text-white"> <i class="fas fa-play rounded-pill me-4 " (click)="getvideos(Moviedetails.videos?.results[0].key)"> <span class="ms-2">WATCH TRAILER</span> </i></a>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<div class="container w-100 py-3 " >
+
+  <mat-tab-group  animationDuration="0ms" mat-align-tabs="center">
+          <mat-tab label="Credits">
+            <swiper [config]="config" class="text-white py-4">
+            <ng-template swiperSlide *ngFor="let credit of Moviedetails?.credits.cast">
+              <div class="people" [routerLink]="['/detalis/person-detalis',credit.id]">
+                <img  *ngIf="credit.profile_path" class="rounded img-fluid" [src]="prefixPath + credit?.profile_path">
+                <img *ngIf="!credit.profile_path" class="rounded img-fluid" src="../../../assets/images/not-avail.png">
+                <h3 class="ps-2 ">{{credit?.original_name}}</h3>
+              </div>
+            </ng-template>>
+            </swiper>
+          </mat-tab>
+
+          <mat-tab label="Videos">
+            <swiper [config]="config2" class="text-white py-4">
+              <ng-template swiperSlide *ngFor="let movie of Moviedetails?.videos.results">
+                <div (click)="getvideos(movie.key)">
+                  <img class="img-fluid" src="https://img.youtube.com/vi/{{movie?.key}}/hqdefault.jpg" data-bs-toggle="modal" data-bs-target="#exampleModal2" >
+                </div>
+              </ng-template>
+            </swiper>
+          </mat-tab>
+
+          <mat-tab label="Images">
+            <swiper [config]="config2" class="text-white py-4">
+              <ng-template swiperSlide *ngFor="let movie of Moviedetails?.images.backdrops">
+                  <img *ngIf="movie.file_path" class="img-fluid h-100" [src]="prefixPath + movie?.file_path">
+                <img *ngIf="!movie.file_path" class="rounded img-fluid" src="../../../assets/images/not-avail.png">
+              </ng-template>
+            </swiper>
+          </mat-tab>
+  </mat-tab-group>
+
+    <div class="recommend pb-5">
+      <h2 class="text-white ">More Like This</h2>
+      <swiper [config]="config" class="text-white">
+        <ng-template swiperSlide *ngFor="let recommend of Moviedetails?.similar.results">
+            <div class="recommend" [routerLink]="['/detalis/movie-detalis',recommend.id]">
+            <img class="img-fluid position-relative" [src]="prefixPath + recommend?.poster_path">
+            <div class="d-flex ">
+              <div class="vote rounded-pill pt-1 text-center"><i class="fas fa-star text-white"></i>{{recommend.vote_average}}</div>
+              <div>
+                <h3 class="ps-2 text-white">{{recommend?.original_title}}</h3>
+              </div>
+            </div>
+          </div>
+          </ng-template>
+        </swiper>
+    </div>
+
+</div>
+
+<!-- Modal -->
+<ng-template #playvideo>
+  <span class="fs-2 d-flex justify-content-center" mat-dialog-close> <i class="bi bi-x-circle text-white"></i></span>
+  <div class="playvideo">
+    <youtube-player
+    videoId="{{key}}"
+    suggestedQuality="highres"
+    style="width: 80vh ; height:100%;"
+    [startSeconds]="0"
+    [endSeconds]="1000">
+  </youtube-player>
+  </div>
+</ng-template>
+
