@@ -5,7 +5,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DetalisRoutingModule } from './detalis-routing.module';
 import { YouTubePlayerModule } from "@angular/youtube-player";
-import { CarouselModule } from 'ngx-owl-carousel-o';
 import {MatTabsModule} from '@angular/material/tabs';
 import { SwiperModule } from 'swiper/angular';
 import {MatDialogModule} from '@angular/material/dialog';
@@ -20,7 +19,6 @@ import {MatDialogModule} from '@angular/material/dialog';
     CommonModule,
     DetalisRoutingModule,
     YouTubePlayerModule,
-    CarouselModule,
     SwiperModule,
     MatTabsModule,
     MatDialogModule
