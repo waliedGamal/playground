@@ -43,8 +43,8 @@ export class MovieToggleComponent implements OnInit {
     })
   }
 
-gettrailier(id:any){
-  this._MovieDataService.getMovieTrailer(id).subscribe((response)=>{
+  getTrailer(id:any){
+  this._MovieDataService.getTrailer('movie',id).subscribe((response)=>{
     this.tralier = response
     this.key = this.tralier.results[0].key
     this.openDialog()
@@ -54,7 +54,7 @@ gettrailier(id:any){
 moviebg(poster:any)
   {
       this.movieposter = poster
-      this._MovieDataService.getMovieImages(this.movieposter).subscribe((response)=>{
+      this._MovieDataService.getImages('movie',this.movieposter).subscribe((response)=>{
       this.moviePoster =response;
       this.imgPath = this.moviePoster?.backdrops[0].file_path
       $(".slider-background2").css("background-image",`url( ${this.originalPoster + this.imgPath})`);

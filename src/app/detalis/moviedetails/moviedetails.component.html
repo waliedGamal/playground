@@ -4,7 +4,8 @@
     <div class="container">
       <div class="row pt-5">
         <div class="col-md-4 py-3">
-          <img class=" w-100" [src]="prefixPath + Moviedetails?.poster_path">
+          <img *ngIf="Moviedetails.poster_path" class=" w-100" [src]="prefixPath + Moviedetails?.poster_path">
+          <img *ngIf="!Moviedetails.poster_path" class="rounded img-fluid" src="../../../assets/images/not-avail.png">
         </div>
         <div class="col-md-8 text-white ">
           <div class="moviecontent py-5">

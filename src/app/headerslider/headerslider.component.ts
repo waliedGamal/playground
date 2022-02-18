@@ -56,11 +56,9 @@ export class HeadersliderComponent implements OnInit {
     })
   }
 
-
-  moviebg(poster:any)
-  {
+  moviebg(poster:any){
       this.movieId = poster
-      this._MovieDataService.getMovieImages(this.movieId).subscribe((response)=>{
+      this._MovieDataService.getImages('movie',this.movieId).subscribe((response)=>{
       this.moviePoster =response;
       this.imgPath = this.moviePoster.backdrops[0].file_path
       $(".slider-background").css("background-image",`url( ${this.originalPoster + this.imgPath})`);

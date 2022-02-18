@@ -31,8 +31,7 @@ export class TvToggleComponent implements OnInit {
   moviePoster:any;
   imgPath:any;
 
-  getTrendingTv()
-  {
+  getTrendingTv(){
     this._MovieDataService.getTrending(`tv`).subscribe((response)=>{
       this.TrendingTv = response.results.slice(0,5)
       $(".slider-background2").css("background-image",`url( ${this.originalPoster + this.TrendingTv[0].backdrop_path })`);
@@ -43,8 +42,8 @@ export class TvToggleComponent implements OnInit {
     this.dialog.open(this.playvideo);
   }
 
-  gettrailier(id:any){
-    this._MovieDataService.getTvTrailer(id).subscribe((response)=>{
+  getTrailer(id:any){
+    this._MovieDataService.getTrailer('tv',id).subscribe((response)=>{
       this.tralier = response
       this.key = this.tralier.results[0].key
       this.openDialog()
@@ -54,7 +53,7 @@ export class TvToggleComponent implements OnInit {
 
   moviebg(poster:any){
       this.movieposter = poster
-      this._MovieDataService.getTvImages(this.movieposter).subscribe((response)=>{
+      this._MovieDataService.getImages('tv', this.movieposter).subscribe((response)=>{
       this.moviePoster =response;
       this.imgPath = this.moviePoster.backdrops[0].file_path
       $(".slider-background2").css("background-image",`url( ${this.originalPoster + this.imgPath})`);

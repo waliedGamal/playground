@@ -4,7 +4,7 @@
 
 <div class="row overflow-hidden justify-content-center align-items-center">
     <div class="col-md-2 my-5 main-box" *ngFor="let movie of TrendingMovies">
-            <div class="position-relative" (click)="gettrailier(movie.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="position-relative" (click)="getTrailer(movie.id)" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img class="rounded img-fluid img-box" [src]=" prefixPath + movie?.poster_path" (mouseenter)="moviebg(movie.id)">
                 <div class="play position-absolute"> <i class="bi bi-play-circle-fill"> </i></div>
                 <h4 class="text-center mt-2 text-white"> {{movie?.title}} </h4>

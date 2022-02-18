@@ -1,6 +1,6 @@
 import { MovieDataService } from '../../moviedata.service';
 import {  Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
-import { ActivatedRoute, Router, ActivationStart } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import SwiperCore , { SwiperOptions ,Navigation} from 'swiper';
 import { MatDialog } from '@angular/material/dialog';
 SwiperCore.use([Navigation]);
@@ -11,40 +11,33 @@ SwiperCore.use([Navigation]);
   styleUrls: ['./moviedetails.component.scss']
 })
 export class MoviedetailsComponent implements OnInit  {
-@ViewChild ('playvideo')
-playvideo!:TemplateRef<any>
 
-  constructor( private _ActivatedRoute:ActivatedRoute, private _MovieDataService:MovieDataService ,public dialog: MatDialog , private Router:Router) { }
+  constructor( private _ActivatedRoute:ActivatedRoute, private _MovieDataService:MovieDataService ,public dialog: MatDialog) { }
 
-  ngOnInit(): void {
-
-
-    this.getMovieDetalis()
-
-    this.Router.events.subscribe((event) => {
-      if (event instanceof ActivationStart) {
-        this.similarId = event.snapshot.params['id']
-        this._MovieDataService.getMovieDetalis('movie',this.similarId).subscribe((response)=>{
-        this.Moviedetails = response;
-        })
-      }})
-  }
-
+  @ViewChild ('playvideo')
+  playvideo!:TemplateRef<any>
   id:any;
-  similarId:any
   Moviedetails:any
-  movieImages:any;
   movieVideo:any;
   imgPath:any;
   key:string=``;
   prefixPath:string=`https://image.tmdb.org/t/p/w500/`;
   originalPoster:string=`https://image.tmdb.org/t/p/original/`
-  profilePath:string=``;
-  recommends:any
   runtime:any
   hours:any
   minutes:any
-  credits:any
+
+  ngOnInit(): void {
+
+    this._ActivatedRoute.params.subscribe((params:Params)=>{
+      this.id = params['id'];
+      this._MovieDataService.getMovieDetalis('movie',this.id).subscribe((response)=>{
+        this.Moviedetails = response;
+        this.imgPath = this.Moviedetails.backdrop_path
+      })
+    });
+
+  }
 
   config: SwiperOptions = {
     slidesPerView: 4,
@@ -115,8 +108,5 @@ playvideo!:TemplateRef<any>
     this.key = key
     this.openDialog()
   }
-
-
-
 
 }

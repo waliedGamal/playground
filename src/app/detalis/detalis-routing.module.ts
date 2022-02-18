@@ -3,7 +3,7 @@ import { TvDetalisComponent } from '../detalis/tv-detalis/tv-detalis.component';
 import { MoviedetailsComponent } from '../detalis/moviedetails/moviedetails.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NavGuard } from '../nav.guard';
+import { NavGuard } from '../Gurds/nav.guard';
 
 const routes: Routes = [
   {path:`movie-detalis/:id`,canActivate:[NavGuard],component:MoviedetailsComponent},

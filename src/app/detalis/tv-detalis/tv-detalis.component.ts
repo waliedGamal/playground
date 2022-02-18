@@ -1,6 +1,6 @@
 import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { MovieDataService } from '../../moviedata.service';
-import { ActivatedRoute ,Router, ActivationStart } from '@angular/router';
+import { ActivatedRoute, Params } from '@angular/router';
 import SwiperCore , { SwiperOptions ,Navigation, Pagination } from 'swiper';
 import { MatDialog } from '@angular/material/dialog';
 SwiperCore.use([Navigation]);
@@ -13,23 +13,18 @@ SwiperCore.use([Navigation]);
 export class TvDetalisComponent implements OnInit {
   @ViewChild ('playvideo')
   playvideo!:TemplateRef<any>
-  similarId: any;
 
-  constructor(private _ActivatedRoute:ActivatedRoute, private _MovieDataService:MovieDataService ,private Router:Router, public dialog: MatDialog) { }
+  constructor(private _ActivatedRoute:ActivatedRoute, private _MovieDataService:MovieDataService ,public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.getTvDetalis()
-    this.getTvTrailer()
 
-    this.Router.events.subscribe((event) => {
-      if (event instanceof ActivationStart) {
-        this.similarId = event.snapshot.params['id']
-        this._MovieDataService.getMovieDetalis('tv',this.similarId).subscribe((response)=>{
-          this.TvDetalis = response;
-          this.getTvImages()
-        })
-      }})
-
+    this._ActivatedRoute.params.subscribe((params:Params)=>{
+      this.id = params['id'];
+      this._MovieDataService.getMovieDetalis('tv',this.id).subscribe((response)=>{
+        this.TvDetalis = response;
+        this.imgPath = this.TvDetalis.backdrop_path
+      })
+    });    
   }
 
   config: SwiperOptions = {
@@ -51,7 +46,6 @@ export class TvDetalisComponent implements OnInit {
         spaceBetween: 50,
       },
     }
-
   };
 
   config2: SwiperOptions = {
@@ -76,38 +70,19 @@ export class TvDetalisComponent implements OnInit {
 
   };
 
-
   id:string=``;
   TvDetalis:any={};
-  movieImages:any;
   movieVideo:any;
   imgPath:any;
   key:string=``
-  fullpath :any;
   prefixPath:string=`https://image.tmdb.org/t/p/w500/`;
   originalPoster:string=`https://image.tmdb.org/t/p/original/`
-  widthauto:any="98%"
-  heightauto:any="90%"
-  recommends:any
-  credits:any
 
-  openDialog(){
-    this.dialog.open(this.playvideo);
-  }
-
-  getTvDetalis()
-  {
+  getTvDetalis(){
     this.id = this._ActivatedRoute.snapshot.params['id'];
     this._MovieDataService.getMovieDetalis('tv',this.id).subscribe((response)=>{
     this.TvDetalis = response;
-    this.getTvImages()
-    })
-  }
-
-  getTvImages(){
-    this._MovieDataService.getTvImages(this.id).subscribe((response)=>{
-    this.movieImages = response
-    this.imgPath = this.movieImages.backdrops[0].file_path
+    this.imgPath = this.TvDetalis.backdrop_path
     })
   }
 
@@ -116,11 +91,10 @@ export class TvDetalisComponent implements OnInit {
     this.openDialog()
   }
 
-  getTvTrailer(){
-    this._MovieDataService.getTvTrailer(this.id).subscribe((response)=>{
-    this.movieVideo = response;
-    this.key=this.movieVideo.results[0].key
-    })
+  
+
+  openDialog(){
+    this.dialog.open(this.playvideo);
   }
 
 

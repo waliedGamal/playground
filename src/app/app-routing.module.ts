@@ -1,7 +1,7 @@
 
 import { TvToggleComponent } from './tvToggle/tv-toggle.component';
 import { MovieToggleComponent } from './movieToggle/movie-toggle.component';
-import { NavGuard } from './nav.guard';
+import { NavGuard } from './Gurds/nav.guard';
 import { SignupComponent } from './signup/signup.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { SigninComponent } from './signin/signin.component';
