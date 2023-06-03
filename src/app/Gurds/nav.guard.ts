@@ -18,7 +18,7 @@ export class NavGuard implements CanActivate {
       }
       else
       {
-        this._Router.navigate([`signin`]);
+        this._Router.navigate([`auth`]);
         return false;
       }
 

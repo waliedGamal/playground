@@ -27,6 +27,7 @@ export class NavbarComponent implements OnInit {
       if(this._AuthService.userData.getValue() != null){
         this.islogin = true
         this.username = this._AuthService.userData.getValue()
+        console.log(this.username)
       }
       else{
         this.islogin = false
@@ -48,4 +49,5 @@ export class NavbarComponent implements OnInit {
   logout(){
     this._AuthService.logout()
   }
+
 }

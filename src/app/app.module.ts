@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NotfoundComponent } from './notfound/notfound.component';
-import { SigninComponent } from './signin/signin.component';
-import { SignupComponent } from './signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeadersliderComponent } from './headerslider/headerslider.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
@@ -23,19 +21,21 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { FooterComponent } from './footer/footer.component';
 import { SwiperModule } from 'swiper/angular';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { NewAuthComponent } from './new-auth/new-auth.component';
+import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    SigninComponent,
     NavbarComponent,
     NotfoundComponent,
-    SignupComponent,
     HeadersliderComponent,
     TvToggleComponent,
     MovieToggleComponent,
     FooterComponent,
+    NewAuthComponent,
+    LoadingSpinnerComponent,
   ],
 
   imports: [

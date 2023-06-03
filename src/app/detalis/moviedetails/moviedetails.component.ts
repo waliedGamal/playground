@@ -1,8 +1,8 @@
 import { MovieDataService } from '../../moviedata.service';
 import {  Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import SwiperCore , { SwiperOptions ,Navigation} from 'swiper';
 import { MatDialog } from '@angular/material/dialog';
+import SwiperCore , { SwiperOptions ,Navigation} from 'swiper';
 SwiperCore.use([Navigation]);
 
 @Component({

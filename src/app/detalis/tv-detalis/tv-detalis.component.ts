@@ -24,7 +24,7 @@ export class TvDetalisComponent implements OnInit {
         this.TvDetalis = response;
         this.imgPath = this.TvDetalis.backdrop_path
       })
-    });    
+    });
   }
 
   config: SwiperOptions = {
@@ -90,8 +90,6 @@ export class TvDetalisComponent implements OnInit {
     this.key = key
     this.openDialog()
   }
-
-  
 
   openDialog(){
     this.dialog.open(this.playvideo);
